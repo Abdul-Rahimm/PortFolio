@@ -1,21 +1,27 @@
-import { YouTubeVideo } from '@/types';
-import YouTubeList from '@/components/ui/YouTubeList';
+import { YouTubeVideo } from "@/types";
+import YouTubeList from "@/components/ui/YouTubeList";
 
 async function getVideos(): Promise<YouTubeVideo[]> {
   try {
-    const response = await fetch('http://localhost:3000/api/youtube', {
-      cache: 'no-store'
+    const response = await fetch("http://localhost:3000/api/youtube", {
+      cache: "force-cache", // Use Next.js cache for 1 hour
+      next: { revalidate: 3600 }, // Revalidate every hour
     });
-    
+
     if (!response.ok) {
-      console.error('Failed to fetch videos');
+      console.error("Failed to fetch videos");
       return [];
     }
-    
+
     const result = await response.json();
+
+    if (result.fallback) {
+      console.log("Using fallback data:", result.message);
+    }
+
     return result.success ? result.data : [];
   } catch (error) {
-    console.error('Error fetching videos:', error);
+    console.error("Error fetching videos:", error);
     return [];
   }
 }
@@ -32,8 +38,8 @@ export default async function VideosPage() {
               YouTube Videos
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              Watch my latest tutorials and coding sessions covering Next.js, TypeScript,
-              React, and modern web development practices.
+              Watch my latest tutorials and coding sessions covering Next.js,
+              TypeScript, React, and modern web development practices.
             </p>
           </div>
         </div>
