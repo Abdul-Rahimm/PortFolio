@@ -1,0 +1,45 @@
+import { YouTubeVideo } from '@/types';
+import YouTubeList from '@/components/ui/YouTubeList';
+
+async function getVideos(): Promise<YouTubeVideo[]> {
+  try {
+    const response = await fetch('http://localhost:3000/api/videos?displayed=true', {
+      cache: 'no-store'
+    });
+    
+    if (!response.ok) {
+      console.error('Failed to fetch videos');
+      return [];
+    }
+    
+    const result = await response.json();
+    return result.success ? result.data : [];
+  } catch (error) {
+    console.error('Error fetching videos:', error);
+    return [];
+  }
+}
+
+export default async function VideosPage() {
+  const videos = await getVideos();
+
+  return (
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+      <div className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              YouTube Videos
+            </h1>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+              Watch my latest tutorials and coding sessions covering Next.js, TypeScript,
+              React, and modern web development practices.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <YouTubeList videos={videos} title="" />
+    </div>
+  );
+}
