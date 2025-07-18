@@ -7,20 +7,20 @@ import Footer from "@/components/ui/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "DevBlog - Next.js & TypeScript Tutorials",
+  title: "Rahim - Next.js & TypeScript Tutorials",
   description: "A modern blog showcasing Next.js, TypeScript, and web development tutorials with YouTube video integration.",
   keywords: ["Next.js", "TypeScript", "React", "Web Development", "Programming", "Tutorials"],
-  authors: [{ name: "DevBlog" }],
-  creator: "DevBlog",
+  authors: [{ name: "Rahim" }],
+  creator: "Rahim",
   openGraph: {
-    title: "DevBlog - Next.js & TypeScript Tutorials",
+    title: "Rahim - Next.js & TypeScript Tutorials",
     description: "Learn modern web development with Next.js, TypeScript, and more",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "DevBlog - Next.js & TypeScript Tutorials",
+    title: "Rahim - Next.js & TypeScript Tutorials",
     description: "Learn modern web development with Next.js, TypeScript, and more",
   },
 };

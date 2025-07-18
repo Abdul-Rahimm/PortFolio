@@ -9,7 +9,7 @@ export default function Header() {
           {/* Logo/Title */}
           <div className="flex items-center">
             <Link href="/" className="text-2xl font-bold text-gray-900 dark:text-white">
-              DevBlog
+              Abdul Rahim
             </Link>
           </div>
 
@@ -22,23 +22,18 @@ export default function Header() {
               Home
             </Link>
             <Link 
-              href="/blog"
-              className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
-            >
-              Blog
-            </Link>
-            <Link 
               href="/videos"
               className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
             >
-              Videos
+              DSA tutorials
             </Link>
             <Link 
-              href="/about"
+              href="/blog"
               className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
             >
-              About
+              Articles
             </Link>
+            
           </nav>
 
           {/* Social Links & Admin */}

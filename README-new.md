@@ -1,4 +1,4 @@
-# DevBlog - Next.js & TypeScript Learning Project
+# Abdul Rahim - Next.js & TypeScript Learning Project
 
 A comprehensive blog and YouTube showcase platform built with Next.js 14, TypeScript, and TailwindCSS. This project demonstrates modern web development best practices and serves as a learning resource for building full-stack applications.
 

@@ -58,16 +58,17 @@ export default async function Home() {
       <section className="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
-            Welcome to <span className="text-blue-600 dark:text-blue-400">DevBlog</span>
+            Get to know <span className="text-blue-600 dark:text-blue-400">Me</span>
           </h1>
+
           <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
-            Exploring the world of web development through code, tutorials, and insights. 
-            Join me on this journey of learning Next.js, TypeScript, and modern web technologies.
-          </p>
+            Passionate about Data structures, Algorithms and Problem-solving. I have a keen interest in System Design and Backend Development. </p>
+         
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="#blogs"
-              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors"
+              className="bg-transparent border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold py-3 px-8 rounded-lg transition-colors"
+
             >
               Read Latest Posts
             </a>
@@ -81,14 +82,15 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Featured Blog Posts */}
-      <section id="blogs">
-        <BlogList blogs={featuredBlogs} title="Latest Blog Posts" />
-      </section>
 
       {/* Featured YouTube Videos */}
       <section id="videos">
         <YouTubeList videos={featuredVideos} title="Latest YouTube Videos" />
+      </section>
+
+      {/* Featured Blog Posts */}
+      <section id="blogs">
+        <BlogList blogs={featuredBlogs} title="Latest Blog Posts" />
       </section>
 
       {/* Call to Action */}

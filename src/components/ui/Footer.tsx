@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* About Section */}
           <div className="col-span-1 md:col-span-2">
-            <h3 className="text-xl font-bold mb-4">DevBlog</h3>
+            <h3 className="text-xl font-bold mb-4">Abdul Rahim</h3>
             <p className="text-gray-300 mb-4">
               A modern blog platform showcasing articles about web development, 
               programming tutorials, and tech insights. Built with Next.js and TypeScript.
@@ -77,7 +77,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <div className="text-gray-400 text-sm">
-            © {currentYear} DevBlog. Built with Next.js and TypeScript.
+            © {currentYear} Abdul Rahim. Built with Next.js and TypeScript.
           </div>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link href="/privacy" className="text-gray-400 hover:text-white text-sm transition-colors">

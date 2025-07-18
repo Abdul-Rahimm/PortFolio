@@ -5,7 +5,7 @@ export default function AboutPage() {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-            About DevBlog
+            About Abdul Rahim
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             A modern platform for sharing knowledge about web development, 
@@ -17,7 +17,7 @@ export default function AboutPage() {
         <div className="prose prose-lg dark:prose-invert max-w-none">
           <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-lg p-8 mb-8">
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-              Welcome to DevBlog
+              Welcome to Abdul Rahim
             </h2>
             <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
               This project demonstrates modern web development practices using Next.js 14, 
