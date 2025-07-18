@@ -39,7 +39,7 @@ export default async function Home() {
               href="#videos"
               className="bg-transparent border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white font-semibold py-3 px-8 rounded-lg transition-colors"
             >
-              Watch Videos
+              Watch Tutorials
             </a>
           </div>
         </div>

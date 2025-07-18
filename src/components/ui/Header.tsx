@@ -1,5 +1,7 @@
 import Link from "next/link";
-import { Github, Twitter, Youtube } from "lucide-react";
+import { Github, Youtube } from "lucide-react";
+import LeetCodeIcon from "@/components/icons/LeetCodeIcon";
+import LinkedInIcon from "@/components/icons/LinkedInIcon";
 
 export default function Header() {
   return (
@@ -41,7 +43,7 @@ export default function Header() {
           {/* Social Links */}
           <div className="flex items-center space-x-4">
             <a
-              href="https://github.com"
+              href="https://github.com/Abdul-Rahimm"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
@@ -50,13 +52,22 @@ export default function Header() {
               <Github size={20} />
             </a>
             <a
-              href="https://twitter.com"
+              href="https://www.linkedin.com/in/abdul-rahim-7801ab231/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
-              aria-label="Twitter"
+              className="text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              aria-label="LinkedIn"
             >
-              <Twitter size={20} />
+              <LinkedInIcon size={20} />
+            </a>
+            <a
+              href="https://leetcode.com/u/abdulxraheem/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-orange-500 dark:hover:text-orange-400 transition-colors"
+              aria-label="LeetCode"
+            >
+              <LeetCodeIcon size={20} />
             </a>
             <a
               href="https://youtube.com/@AbdulRaheemCodes"

@@ -1,7 +1,7 @@
-import { Play, Eye, Calendar } from 'lucide-react';
-import { YouTubeVideo } from '@/types';
-import { formatDate } from '@/lib/utils';
-import styles from '@/styles/youtube.module.css';
+import { Play, Eye, Calendar } from "lucide-react";
+import { YouTubeVideo } from "@/types";
+import { formatDate } from "@/lib/utils";
+import styles from "@/styles/youtube.module.css";
 
 interface YouTubeCardProps {
   video: YouTubeVideo;
@@ -14,7 +14,7 @@ export default function YouTubeCard({ video, onClick }: YouTubeCardProps) {
       onClick();
     } else {
       // Open YouTube video in new tab
-      window.open(`https://www.youtube.com/watch?v=${video.videoId}`, '_blank');
+      window.open(`https://www.youtube.com/watch?v=${video.videoId}`, "_blank");
     }
   };
 
@@ -36,22 +36,16 @@ export default function YouTubeCard({ video, onClick }: YouTubeCardProps) {
           className={styles.videoThumbnailImage}
         />
         <div className={styles.playButton}>
-          <Play size={24} fill="currentColor" />
+          <Play size={12} fill="currentColor" />
         </div>
-        <div className={styles.videoDuration}>
-          {video.duration}
-        </div>
+        <div className={styles.videoDuration}>{video.duration}</div>
       </div>
-      
+
       <div className={styles.videoContent}>
-        <h3 className={styles.videoTitle}>
-          {video.title}
-        </h3>
-        
-        <p className={styles.videoDescription}>
-          {video.description}
-        </p>
-        
+        <h3 className={styles.videoTitle}>{video.title}</h3>
+
+        <p className={styles.videoDescription}>{video.description}</p>
+
         <div className={styles.videoMeta}>
           <span className={styles.viewCount}>
             <Eye size={12} />
