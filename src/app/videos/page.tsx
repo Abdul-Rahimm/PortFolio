@@ -3,7 +3,7 @@ import YouTubeList from '@/components/ui/YouTubeList';
 
 async function getVideos(): Promise<YouTubeVideo[]> {
   try {
-    const response = await fetch('http://localhost:3000/api/videos?displayed=true', {
+    const response = await fetch('http://localhost:3000/api/youtube?displayed=true', {
       cache: 'no-store'
     });
     

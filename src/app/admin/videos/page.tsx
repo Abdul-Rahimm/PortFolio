@@ -6,7 +6,7 @@ import { YouTubeVideo } from '@/types';
 import AdminLayout from '@/components/admin/AdminLayout';
 import styles from '@/styles/admin.module.css';
 import { cn } from '@/lib/utils';
-import { Plus, Edit, Trash2, Eye, ExternalLink } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 
 export default function AdminVideos() {
   const [videos, setVideos] = useState<YouTubeVideo[]>([]);
@@ -18,7 +18,7 @@ export default function AdminVideos() {
 
   const fetchVideos = async () => {
     try {
-      const response = await fetch('/api/videos');
+      const response = await fetch('/api/youtube');
       if (response.ok) {
         const result = await response.json();
         if (result.success) {
@@ -32,22 +32,9 @@ export default function AdminVideos() {
     }
   };
 
-  const handleDelete = async (id: string) => {
-    if (!confirm('Are you sure you want to delete this video?')) {
-      return;
-    }
-
-    try {
-      const response = await fetch(`/api/videos/${id}`, {
-        method: 'DELETE',
-      });
-
-      if (response.ok) {
-        setVideos(videos.filter(video => video.id !== id));
-      }
-    } catch (error) {
-      console.error('Error deleting video:', error);
-    }
+  const refreshVideos = async () => {
+    setLoading(true);
+    await fetchVideos();
   };
 
   if (loading) {
@@ -67,16 +54,16 @@ export default function AdminVideos() {
           <div>
             <h1 className={styles.pageTitle}>YouTube Videos</h1>
             <p className={styles.pageDescription}>
-              Manage your YouTube video showcase.
+              Latest videos from @AbdulRaheemCodes YouTube channel.
             </p>
           </div>
-          <Link
-            href="/admin/videos/new"
+          <button
+            onClick={refreshVideos}
             className={cn(styles.button, styles.buttonPrimary)}
+            disabled={loading}
           >
-            <Plus size={20} />
-            Add Video
-          </Link>
+            {loading ? 'Refreshing...' : 'Refresh Videos'}
+          </button>
         </div>
       </div>
 
@@ -139,20 +126,6 @@ export default function AdminVideos() {
                     >
                       <ExternalLink size={16} />
                     </a>
-                    <Link
-                      href={`/admin/videos/edit/${video.id}`}
-                      className="text-gray-600 hover:text-gray-700 dark:text-gray-400"
-                      title="Edit video"
-                    >
-                      <Edit size={16} />
-                    </Link>
-                    <button
-                      onClick={() => handleDelete(video.id)}
-                      className="text-red-600 hover:text-red-700 dark:text-red-400"
-                      title="Delete video"
-                    >
-                      <Trash2 size={16} />
-                    </button>
                   </div>
                 </td>
               </tr>
@@ -160,18 +133,17 @@ export default function AdminVideos() {
           </tbody>
         </table>
 
-        {videos.length === 0 && (
+        {videos.length === 0 && !loading && (
           <div className="text-center py-12">
             <p className="text-gray-500 dark:text-gray-400 mb-4">
-              No YouTube videos found.
+              No YouTube videos found. Make sure your YouTube API is configured correctly.
             </p>
-            <Link
-              href="/admin/videos/new"
+            <button
+              onClick={refreshVideos}
               className={cn(styles.button, styles.buttonPrimary)}
             >
-              <Plus size={20} />
-              Add Your First Video
-            </Link>
+              Try Again
+            </button>
           </div>
         )}
       </div>

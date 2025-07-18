@@ -23,19 +23,19 @@ async function getBlogs(): Promise<BlogPost[]> {
 
 async function getVideos(): Promise<YouTubeVideo[]> {
   try {
-    const response = await fetch('http://localhost:3000/api/videos?displayed=true', {
+    const response = await fetch('http://localhost:3000/api/youtube', {
       cache: 'no-store'
     });
     
     if (!response.ok) {
-      console.error('Failed to fetch videos');
+      console.error('Failed to fetch YouTube videos');
       return [];
     }
     
     const result = await response.json();
     return result.success ? result.data : [];
   } catch (error) {
-    console.error('Error fetching videos:', error);
+    console.error('Error fetching YouTube videos:', error);
     return [];
   }
 }
