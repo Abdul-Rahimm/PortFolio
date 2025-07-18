@@ -4,23 +4,10 @@ import { formatDate } from '@/lib/utils';
 import styles from '@/styles/blog.module.css';
 import { Calendar, Clock, User, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
+import { mockBlogs } from '@/data/mockData';
 
-async function getBlog(slug: string): Promise<BlogPost | null> {
-  try {
-    const response = await fetch(`http://localhost:3000/api/blogs/${slug}`, {
-      cache: 'no-store'
-    });
-    
-    if (!response.ok) {
-      return null;
-    }
-    
-    const result = await response.json();
-    return result.success ? result.data : null;
-  } catch (error) {
-    console.error('Error fetching blog:', error);
-    return null;
-  }
+function getBlog(slug: string): BlogPost | null {
+  return mockBlogs.find(blog => blog.slug === slug && blog.isPublished) || null;
 }
 
 interface BlogPostPageProps {
@@ -30,7 +17,7 @@ interface BlogPostPageProps {
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
-  const blog = await getBlog(params.slug);
+  const blog = getBlog(params.slug);
 
   if (!blog) {
     notFound();

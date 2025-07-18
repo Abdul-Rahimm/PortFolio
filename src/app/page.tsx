@@ -1,25 +1,7 @@
 import { BlogPost, YouTubeVideo } from '@/types';
 import BlogList from '@/components/ui/BlogList';
 import YouTubeList from '@/components/ui/YouTubeList';
-
-async function getBlogs(): Promise<BlogPost[]> {
-  try {
-    const response = await fetch('http://localhost:3000/api/blogs?published=true', {
-      cache: 'no-store'
-    });
-    
-    if (!response.ok) {
-      console.error('Failed to fetch blogs');
-      return [];
-    }
-    
-    const result = await response.json();
-    return result.success ? result.data : [];
-  } catch (error) {
-    console.error('Error fetching blogs:', error);
-    return [];
-  }
-}
+import { mockBlogs } from '@/data/mockData';
 
 async function getVideos(): Promise<YouTubeVideo[]> {
   try {
@@ -41,10 +23,10 @@ async function getVideos(): Promise<YouTubeVideo[]> {
 }
 
 export default async function Home() {
-  const [blogs, videos] = await Promise.all([
-    getBlogs(),
-    getVideos()
-  ]);
+  const videos = await getVideos();
+  
+  // Use mock blogs for now until Medium integration
+  const blogs = mockBlogs.filter(blog => blog.isPublished);
 
   // Show only the latest 6 blog posts on homepage
   const featuredBlogs = blogs.slice(0, 6);

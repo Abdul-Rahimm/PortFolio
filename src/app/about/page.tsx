@@ -51,7 +51,7 @@ export default function AboutPage() {
                 <ul className="text-gray-600 dark:text-gray-300 space-y-2">
                   <li>• Blog post management</li>
                   <li>• YouTube video integration</li>
-                  <li>• Admin interface</li>
+                  <li>• Dark/Light theme support</li>
                   <li>• Responsive design</li>
                 </ul>
               </div>
@@ -135,18 +135,18 @@ export default function AboutPage() {
                   YouTube Integration
                 </h3>
                 <p className="text-gray-700 dark:text-gray-300">
-                  YouTube videos are showcased with thumbnails, descriptions, and direct links. 
-                  The admin can control which videos are displayed on the homepage.
+                  YouTube videos are automatically fetched from the @AbdulRaheemCodes channel and 
+                  displayed with thumbnails, descriptions, and direct links to YouTube.
                 </p>
               </div>
 
               <div className="border-l-4 border-green-500 pl-6">
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                  Admin Interface
+                  Content Management
                 </h3>
                 <p className="text-gray-700 dark:text-gray-300">
-                  A comprehensive admin panel allows content management with forms for creating 
-                  and editing blog posts and managing YouTube video displays.
+                  Blog posts are currently managed through mock data, with plans to integrate 
+                  with Medium for dynamic content fetching in the future.
                 </p>
               </div>
             </div>

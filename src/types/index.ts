@@ -23,12 +23,6 @@ export interface YouTubeVideo {
   isDisplayed: boolean;
 }
 
-export interface AdminUser {
-  id: string;
-  username: string;
-  email: string;
-}
-
 export interface ApiResponse<T> {
   success: boolean;
   data?: T;

@@ -1,21 +1,20 @@
-# Abdul Rahim - Next.js & TypeScript Learning Project
+# Abdul Rahim - Next.js & TypeScript Portfolio
 
-A comprehensive blog and YouTube showcase platform built with Next.js 14, TypeScript, and TailwindCSS. This project demonstrates modern web development best practices and serves as a learning resource for building full-stack applications.
+A modern portfolio and blog platform built with Next.js 14, TypeScript, and TailwindCSS. This project showcases web development skills and serves as a learning resource for building full-stack applications.
 
 ## 🚀 Features
 
 ### Frontend
-- **Blog Showcase**: Display published blog posts with proper SEO optimization
-- **YouTube Integration**: Showcase YouTube videos with thumbnails and metadata
+- **Blog Showcase**: Display blog posts with proper SEO optimization
+- **YouTube Integration**: Real-time YouTube video fetching from @AbdulRaheemCodes channel
 - **Responsive Design**: Mobile-first approach using TailwindCSS
 - **Dark Mode**: Built-in dark mode support
 - **SEO Optimized**: Proper meta tags and Open Graph support
 
-### Admin Interface
-- **Content Management**: Create, edit, and delete blog posts
-- **Video Management**: Add and manage YouTube video displays
-- **Dashboard**: Overview of content statistics
-- **Form Validation**: TypeScript-based form handling
+### Content Management
+- **YouTube Videos**: Automatically fetched from YouTube Data API v3
+- **Blog Posts**: Currently using mock data with future Medium integration planned
+- **Real-time Updates**: Fresh content fetching on each visit
 
 ### Technical Features
 - **Next.js 14**: App Router with Server Components
@@ -38,15 +37,14 @@ A comprehensive blog and YouTube showcase platform built with Next.js 14, TypeSc
 ```
 src/
 ├── app/                    # Next.js App Router pages
-│   ├── admin/             # Admin interface pages
-│   ├── api/               # API routes
+│   ├── api/               # API routes (YouTube integration)
 │   ├── blog/              # Blog pages
-│   └── videos/            # Video showcase page
+│   ├── videos/            # Video showcase page
+│   └── about/             # About page
 ├── components/            # React components
-│   ├── admin/             # Admin-specific components
 │   └── ui/                # Reusable UI components
 ├── data/                  # Mock data and static content
-├── lib/                   # Utility functions
+├── lib/                   # Utility functions and YouTube API
 ├── styles/                # CSS modules (no inline styles)
 └── types/                 # TypeScript type definitions
 ```
@@ -93,28 +91,16 @@ src/
 - **Blog Page**: Browse all published blog posts
 - **Individual Posts**: Read full blog posts with proper formatting
 - **Videos Page**: Watch YouTube videos in an organized layout
-
-### Admin Interface
-- **Access**: Visit `/admin` to access the admin panel
-- **Blog Management**: Create, edit, and publish blog posts
-- **Video Management**: Add YouTube videos by URL or video ID
-- **Dashboard**: Monitor content statistics
+- **About Page**: Learn more about the project and its features
 
 ### API Endpoints
 
-#### Blogs
-- `GET /api/blogs` - Fetch all blogs (with query params)
-- `POST /api/blogs` - Create a new blog post
-- `GET /api/blogs/[id]` - Fetch a specific blog
-- `PUT /api/blogs/[id]` - Update a blog post
-- `DELETE /api/blogs/[id]` - Delete a blog post
+#### YouTube Integration
+- `GET /api/youtube` - Fetch latest videos from @AbdulRaheemCodes channel
 
-#### Videos
-- `GET /api/videos` - Fetch all videos (with query params)
-- `POST /api/videos` - Add a new video
-- `GET /api/videos/[id]` - Fetch a specific video
-- `PUT /api/videos/[id]` - Update a video
-- `DELETE /api/videos/[id]` - Delete a video
+### Content Sources
+- **YouTube Videos**: Fetched from YouTube Data API v3 (@AbdulRaheemCodes channel)
+- **Blog Posts**: Currently using mock data, future Medium integration planned
 
 ## 🎯 Learning Objectives
 
@@ -123,11 +109,11 @@ This project teaches:
 1. **Next.js 14 App Router**: Understanding the new routing system and server components
 2. **TypeScript Integration**: Proper typing and interface design for scalable applications
 3. **CSS Architecture**: Using CSS modules instead of inline styles for maintainable styling
-4. **API Design**: Creating RESTful endpoints with proper error handling
+4. **API Integration**: Working with external APIs (YouTube Data API)
 5. **Component Architecture**: Building reusable and maintainable React components
 6. **State Management**: Client-side state handling without external libraries
-7. **Form Handling**: TypeScript-based form validation and submission
-8. **SEO Best Practices**: Meta tags, Open Graph, and semantic HTML
+7. **SEO Best Practices**: Meta tags, Open Graph, and semantic HTML
+8. **Modern Development**: Server components, static generation, and performance optimization
 
 ## 🔧 Key Implementation Details
 
@@ -183,10 +169,9 @@ npm start
 ```
 
 ### Environment Variables
-For production deployment, you may want to set up environment variables for:
-- Database connections (when moving beyond mock data)
-- YouTube API keys (for real YouTube integration)
-- Authentication secrets (for admin access)
+For production deployment, you'll need to set up environment variables for:
+- YouTube API keys (for real YouTube integration) - See YOUTUBE_SETUP.md for details
+- Database connections (when implementing dynamic blog integration)
 
 ## 📚 Learning Resources
 

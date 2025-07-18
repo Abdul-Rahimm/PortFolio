@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Github, Twitter, Youtube, Settings } from 'lucide-react';
+import { Github, Twitter, Youtube } from 'lucide-react';
 
 export default function Header() {
   return (
@@ -36,7 +36,7 @@ export default function Header() {
             
           </nav>
 
-          {/* Social Links & Admin */}
+          {/* Social Links */}
           <div className="flex items-center space-x-4">
             <a
               href="https://github.com"
@@ -57,7 +57,7 @@ export default function Header() {
               <Twitter size={20} />
             </a>
             <a
-              href="https://youtube.com"
+              href="https://youtube.com/@AbdulRaheemCodes"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-400 hover:text-red-600 dark:hover:text-red-400 transition-colors"
@@ -65,13 +65,6 @@ export default function Header() {
             >
               <Youtube size={20} />
             </a>
-            <Link
-              href="/admin"
-              className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
-              aria-label="Admin Panel"
-            >
-              <Settings size={20} />
-            </Link>
           </div>
         </div>
       </div>

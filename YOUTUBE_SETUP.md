@@ -30,7 +30,7 @@ To fetch real YouTube videos from your channel, you need to set up the YouTube D
 
 4. **Test the Integration:**
    - Restart your development server
-   - Visit the admin videos page to see if videos are loaded
+   - Visit the videos page to see if videos are loaded
    - Check the homepage for YouTube videos
 
 ## Important Notes:

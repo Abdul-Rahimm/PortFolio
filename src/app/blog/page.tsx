@@ -1,27 +1,10 @@
 import { BlogPost } from '@/types';
 import BlogList from '@/components/ui/BlogList';
-
-async function getBlogs(): Promise<BlogPost[]> {
-  try {
-    const response = await fetch('http://localhost:3000/api/blogs?published=true', {
-      cache: 'no-store'
-    });
-    
-    if (!response.ok) {
-      console.error('Failed to fetch blogs');
-      return [];
-    }
-    
-    const result = await response.json();
-    return result.success ? result.data : [];
-  } catch (error) {
-    console.error('Error fetching blogs:', error);
-    return [];
-  }
-}
+import { mockBlogs } from '@/data/mockData';
 
 export default async function BlogPage() {
-  const blogs = await getBlogs();
+  // Use mock blogs for now until Medium integration
+  const blogs = mockBlogs.filter(blog => blog.isPublished);
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
