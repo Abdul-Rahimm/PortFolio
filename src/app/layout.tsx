@@ -7,21 +7,30 @@ import Footer from "@/components/ui/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Abdul Rahim - Next.js & TypeScript Tutorials",
-  description: "A modern blog showcasing Next.js, TypeScript, and web development tutorials with YouTube video integration.",
-  keywords: ["Next.js", "TypeScript", "React", "Web Development", "Programming", "Tutorials"],
+  title: "Abdul Rahim",
+  description:
+    "A modern blog showcasing Data structures, Algorithms, and Problem-solving tutorials using Next.js and TypeScript.",
+  keywords: [
+    "Data Structures",
+    "Algorithms",
+    "Problem Solving",
+    "Competitive Programming",
+    "Cpp",
+    "Programming",
+    "Tutorials",
+  ],
   authors: [{ name: "Abdul Rahim" }],
   creator: "Abdul Rahim",
   openGraph: {
-    title: "Abdul Rahim - Next.js & TypeScript Tutorials",
-    description: "Learn modern web development with Next.js, TypeScript, and more",
+    title: "Abdul Rahim",
+    description: "Learn Data structures, Algorithms, and Problem-solving",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Abdul Rahim - Next.js & TypeScript Tutorials",
-    description: "Learn modern web development with Next.js, TypeScript, and more",
+    title: "Abdul Rahim ",
+    description: "Learn Data structures, Algorithms, and Problem-solving",
   },
 };
 
@@ -32,11 +41,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className={`${inter.className} antialiased bg-white dark:bg-gray-900`}>
+      <body
+        className={`${inter.className} antialiased bg-white dark:bg-gray-900`}
+      >
         <Header />
-        <main>
-          {children}
-        </main>
+        <main>{children}</main>
         <Footer />
       </body>
     </html>

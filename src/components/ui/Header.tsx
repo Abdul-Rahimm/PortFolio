@@ -1,5 +1,5 @@
-import Link from 'next/link';
-import { Github, Twitter, Youtube } from 'lucide-react';
+import Link from "next/link";
+import { Github, Twitter, Youtube } from "lucide-react";
 
 export default function Header() {
   return (
@@ -8,32 +8,34 @@ export default function Header() {
         <div className="flex justify-between items-center h-16">
           {/* Logo/Title */}
           <div className="flex items-center">
-            <Link href="/" className="text-2xl font-bold text-gray-900 dark:text-white">
+            <Link
+              href="/"
+              className="text-2xl font-bold text-gray-900 dark:text-white"
+            >
               Abdul Rahim
             </Link>
           </div>
 
           {/* Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <Link 
+            <Link
               href="/"
               className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
             >
               Home
             </Link>
-            <Link 
+            <Link
               href="/videos"
               className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
             >
               DSA tutorials
             </Link>
-            <Link 
+            {/* <Link 
               href="/blog"
               className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
             >
               Articles
-            </Link>
-            
+            </Link> */}
           </nav>
 
           {/* Social Links */}

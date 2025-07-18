@@ -1,3 +1,4 @@
+import { mockYouTubeVideos } from "@/data/mockData";
 import { YouTubeVideo } from "@/types";
 
 // Cache implementation
@@ -341,4 +342,32 @@ export function getCacheStats(): {
     size: cache.size,
     entries,
   };
+}
+
+export async function getVideos(): Promise<YouTubeVideo[]> {
+  try {
+    // const response = await fetch("http://localhost:3000/api/youtube", {
+    //   cache: "force-cache", // Use Next.js cache for 1 hour
+    //   next: { revalidate: 3600 }, // Revalidate every hour
+    // });
+
+    // if (!response.ok) {
+    //   console.error("Failed to fetch YouTube videos");
+    //   return [];
+    // }
+
+    // const result = await response.json();
+    // console.log("YouTube API response:", result);
+
+    // if (result.fallback) {
+    //   console.log("Using fallback data:", result.message);
+    // }
+
+    // return result.success ? result.data : [];
+    // return result.data.size > 0 ? result.data : mockYouTubeVideos;
+    return mockYouTubeVideos;
+  } catch (error) {
+    console.error("Error fetching YouTube videos:", error);
+    return [];
+  }
 }
