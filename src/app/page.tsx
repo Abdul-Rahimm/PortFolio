@@ -2,7 +2,9 @@ import YouTubeList from "@/components/ui/YouTubeList";
 import { getVideos } from "@/lib/youtube";
 
 export default async function Home() {
+  console.log("🏠 HomePage: Fetching videos...");
   const videos = await getVideos();
+  console.log(`🏠 HomePage: Received ${videos.length} videos`);
 
   // Use mock blogs for now until Medium integration
   // const blogs = mockBlogs.filter((blog) => blog.isPublished);

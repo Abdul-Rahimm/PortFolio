@@ -134,24 +134,53 @@ export async function fetchYouTubeVideosByHandle(
 
 export async function getVideos(): Promise<YouTubeVideo[]> {
   try {
-    const response = await fetch("http://localhost:3000/api/youtube", {
-      cache: "force-cache", // Use Next.js cache for 1 hour
+    console.log("🔍 Fetching videos from API...");
+
+    // Use VERCEL_URL in production, localhost in development
+    const baseUrl = process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : "http://localhost:3000";
+
+    console.log("🌐 API Base URL:", baseUrl);
+
+    const response = await fetch(`${baseUrl}/api/youtube`, {
+      cache: "force-cache",
       next: { revalidate: 3600 }, // Revalidate every hour
     });
 
+    console.log("📡 API Response status:", response.status);
+
     if (!response.ok) {
-      console.error("Failed to fetch YouTube videos");
-      return mockYouTubeVideos;
+      console.error(
+        "❌ API response not ok:",
+        response.status,
+        response.statusText
+      );
+      console.log("🎭 Falling back to mock data due to API failure");
+      return mockYouTubeVideos.slice(0, 5);
     }
 
     const result = await response.json();
-    // console.log("YouTube API response:", result);
+    console.log("📊 API Result:", {
+      success: result.success,
+      count: result.count,
+      fallback: result.fallback,
+      environment: result.environment,
+    });
 
-    return result.success ? result.data : mockYouTubeVideos;
-    // return result.data.size > 0 ? result.data : mockYouTubeVideos;
-    // return mockYouTubeVideos;
+    // Always return data, whether from API or fallback
+    const videos = result.data || [];
+
+    if (videos.length === 0) {
+      console.log("⚠️ No videos in response, returning mock data");
+      return mockYouTubeVideos.slice(0, 5);
+    }
+
+    console.log(`✅ Returning ${videos.length} videos`);
+    return videos;
   } catch (error) {
-    console.error("Error fetching YouTube videos:", error);
-    return [];
+    console.error("💥 Error fetching YouTube videos:", error);
+    console.log("🎭 Returning mock data as final fallback");
+    return mockYouTubeVideos.slice(0, 5);
   }
 }

@@ -2,7 +2,9 @@ import YouTubeList from "@/components/ui/YouTubeList";
 import { getVideos } from "@/lib/youtube";
 
 export default async function VideosPage() {
+  console.log("🎬 VideosPage: Fetching videos...");
   const videos = await getVideos();
+  console.log(`🎬 VideosPage: Received ${videos.length} videos`);
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
@@ -16,6 +18,11 @@ export default async function VideosPage() {
               Watch my latest tutorials and coding sessions covering data
               structures, algorithms, and problem-solving.
             </p>
+            {process.env.NODE_ENV === "development" && (
+              <div className="mt-4 p-2 bg-blue-50 rounded text-sm text-blue-700">
+                Debug: Loaded {videos.length} videos
+              </div>
+            )}
           </div>
         </div>
       </div>
