@@ -145,7 +145,7 @@ export async function getVideos(): Promise<YouTubeVideo[]> {
     }
 
     const result = await response.json();
-    console.log("YouTube API response:", result);
+    // console.log("YouTube API response:", result);
 
     return result.success ? result.data : mockYouTubeVideos;
     // return result.data.size > 0 ? result.data : mockYouTubeVideos;
