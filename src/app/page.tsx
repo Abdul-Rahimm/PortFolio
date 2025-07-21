@@ -10,8 +10,7 @@ export default async function Home() {
   // Show only the latest 6 blog posts on homepage
   // const featuredBlogs = blogs.slice(0, 6);
 
-  // Show only the latest 4 videos on homepage
-  const featuredVideos = videos.slice(0, 6);
+  const featuredVideos = videos.slice(0, 7);
 
   return (
     <div className="min-h-screen">

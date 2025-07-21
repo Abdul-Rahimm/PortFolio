@@ -1,42 +1,11 @@
 import { mockYouTubeVideos } from "@/data/mockData";
 import { YouTubeVideo } from "@/types";
 import { getCacheKey } from "./cache";
-import { getFromCache, setCache  } from "./cache";
-
-
-interface YouTubeApiResponse {
-  items: {
-    id: {
-      videoId: string;
-    };
-    snippet: {
-      title: string;
-      description: string;
-      publishedAt: string;
-      resourceId?: {
-        videoId: string;
-      };
-      thumbnails: {
-        maxres?: { url: string };
-        high?: { url: string };
-        medium?: { url: string };
-        default?: { url: string };
-      };
-    };
-  }[];
-}
-
-interface YouTubeVideoDetails {
-  items: {
-    id: string;
-    contentDetails: {
-      duration: string;
-    };
-    statistics: {
-      viewCount: string;
-    };
-  }[];
-}
+import { getFromCache, setCache } from "./cache";
+import {
+  YouTubeApiResponse,
+  YouTubeVideoDetails,
+} from "@/interfaces/youtubeInterfaces";
 
 function parseYouTubeDuration(duration: string): string {
   const match = duration.match(/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/);
@@ -92,7 +61,7 @@ export async function fetchYouTubeVideosByHandle(
 
     // Now get videos using the found channel ID
     const videosResponse = await fetch(
-      `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&maxResults=5&order=date&type=video&key=${API_KEY}`
+      `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&maxResults=6&order=date&type=video&key=${API_KEY}`
     );
 
     if (!videosResponse.ok) {
@@ -107,7 +76,7 @@ export async function fetchYouTubeVideosByHandle(
       .filter(Boolean);
 
     if (videoIds.length === 0) {
-      return [];
+      return mockYouTubeVideos;
     }
 
     // Get video details
@@ -162,7 +131,6 @@ export async function fetchYouTubeVideosByHandle(
     return [];
   }
 }
-
 
 export async function getVideos(): Promise<YouTubeVideo[]> {
   try {

@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
-import { fetchYouTubeVideosByHandle, getCacheStats } from "@/lib/youtube";
+import { fetchYouTubeVideosByHandle } from "@/lib/youtube";
 import { mockYouTubeVideos } from "@/data/mockData";
+import { getCacheStats } from "@/lib/cache";
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -27,8 +28,8 @@ export async function GET(request: Request) {
 
     return NextResponse.json({
       success: true, // Still return success since we have data
-      data: mockYouTubeVideos.slice(0, 5), // Return first 5 mock videos
-      count: 5,
+      data: mockYouTubeVideos.slice(0, 6), // Return first 6 mock videos
+      count: 6,
       fallback: true,
       message: "Using mock data due to API issues",
     });
