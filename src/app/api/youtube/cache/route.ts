@@ -1,6 +1,5 @@
+import { clearYouTubeCache, getCacheStats } from "@/lib/cache";
 import { NextResponse } from "next/server";
-import { clearYouTubeCache, getCacheStats } from "@/lib/youtube";
-
 // GET route to check cache stats
 export async function GET() {
   try {
