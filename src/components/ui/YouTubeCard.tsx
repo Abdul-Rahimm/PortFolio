@@ -2,6 +2,7 @@ import { Play, Eye, Calendar } from "lucide-react";
 import { YouTubeVideo } from "@/types";
 import { formatDate } from "@/lib/utils";
 import styles from "@/styles/youtube.module.css";
+import Image from "next/image";
 
 interface YouTubeCardProps {
   video: YouTubeVideo;
@@ -30,10 +31,16 @@ export default function YouTubeCard({ video, onClick }: YouTubeCardProps) {
   return (
     <div className={styles.videoCard} onClick={handleClick}>
       <div className={styles.videoThumbnail}>
-        <img
+        <Image
           src={video.thumbnailUrl}
           alt={video.title}
+          width={320}
+          height={180}
+          quality={85}
+          priority={false}
           className={styles.videoThumbnailImage}
+          placeholder="blur"
+          blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
         />
         <div className={styles.playButton}>
           <Play size={12} fill="currentColor" />
